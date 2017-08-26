@@ -16,6 +16,9 @@ angular.module('ArabicToRomanApp', [])
 	}
 	
 	function checkAlreadyExist(nameKey){
+		if(typeof $scope.numbersList == 'undefined'){
+			return false;
+		}
 		for (var i=0; i < $scope.numbersList.length; i++) {
 			if ($scope.numbersList[i].arabic === nameKey) {
 				return true;
@@ -27,7 +30,7 @@ angular.module('ArabicToRomanApp', [])
 	
 	//Submit function for new number
 	$scope.submitNumber = function(){
-		if($scope.numberform.number != "" && checkAlreadyExist($cope.numberform.number)){		
+		if($scope.numberform.number != "" && !checkAlreadyExist($scope.numberform.number)){		
 			api.addNewNumber($scope.numberform).then(function(){
 				reloadList();
 			});

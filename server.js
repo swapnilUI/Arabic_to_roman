@@ -1,7 +1,7 @@
 var express = require("express");
 var app = express();
 var mongojs = require("mongojs");
-var db = mongojs("romannumbersdb",['romannumbers']);
+var db = mongojs("mongodb://root:abc123@ds159953.mlab.com:59953/romannumbersdb",['romannumbers']);
 var bodyParser = require('body-parser');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
