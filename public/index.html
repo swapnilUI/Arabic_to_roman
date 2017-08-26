@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="mainApp">
+
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+	 crossorigin="anonymous">
+
+	<!-- Optional theme -->	
+	<title>Arabic to Roman</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
+	 crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+</head>
+
+<body>
+	<div class="container" ng-controller="ArabicToRomanCtrl">
+		<h1>Arabic to Roman</h1>
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<form>
+					<input type="number" placeholder="Enter a number" class="form-field"  ng-model="numberform.number" max="3999" min="1" required/>
+					<button class="btn btn-primary" ng-click="submitNumber()">Submit</button>
+				</form>
+			</div>
+		</div>
+		<table class="table table-bordered">
+			<thead class="thead-inverse">
+				<tr>
+					<th>Arabic</th>
+					<th>Roman</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-class="isPrime(number.arabic)?'table-info':''" ng-repeat="number in numbersList">
+					<td>{{number.arabic}}</td>
+					<td>{{number.roman}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="controllers/arabictoromanctrl.js"></script>
+	<script type="text/javascript" src="services/services.js"></script>
+</body>
+</html>
