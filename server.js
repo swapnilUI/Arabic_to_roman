@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 
 var api = require('./services/services.js')(app, db);
 
-app.listen(3000,function(){
+app.listen(process.env.PORT || 3000,function(){
 	console.log("server running");
 });
 
