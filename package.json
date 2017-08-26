@@ -1,6 +1,9 @@
 {
   "name": "my-project-name",
   "version": "0.1.0",
+  "scripts":{
+    "start": "node server.js"
+  },
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-contrib-jshint": "~0.10.0",
